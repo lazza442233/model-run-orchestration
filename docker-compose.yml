@@ -54,6 +54,24 @@ services:
     networks:
       - model-net
 
+  worker:
+    build: .
+    command: rq worker default -u redis://redis:6379/0
+    volumes:
+      - ./src:/app/src
+      - /tmp/model_runs:/tmp/model_runs
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@postgres:5432/model_run_db
+      REDIS_URL: redis://redis:6379/0
+      PYTHONPATH: /app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - model-net
+
 networks:
   model-net:
     driver: bridge

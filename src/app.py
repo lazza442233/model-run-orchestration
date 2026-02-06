@@ -18,6 +18,9 @@ def create_app():
 
     # 4. Register Blueprints
     from src.api.health import health_bp
+    from src.api.runs import runs_bp
+
     app.register_blueprint(health_bp)
+    app.register_blueprint(runs_bp)
 
     return app

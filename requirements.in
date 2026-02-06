@@ -1,0 +1,22 @@
+# Core Framework
+flask==3.0.*
+gunicorn
+
+# Configuration
+pydantic-settings
+
+# Database
+sqlalchemy>=2.0
+psycopg[binary]>=3.1
+alembic
+
+# Worker & Queue
+redis
+rq
+
+# Logging & Observability
+structlog
+
+# Development (optional here, but good for pip-compile)
+# pytest
+# ruff

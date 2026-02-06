@@ -1,0 +1,9 @@
+flask==3.0.0
+pydantic-settings
+sqlalchemy>=2.0
+psycopg[binary]>=3.1
+redis
+rq
+structlog
+gunicorn
+alembic
